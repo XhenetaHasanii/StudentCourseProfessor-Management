@@ -9,4 +9,9 @@ public class CourseService {
     public  CourseService(CourseRepository courseRepository){
         this.courseRepository=courseRepository;
     }
+
+    public void addNewCourse(Course course) {
+        courseRepository.save(course);
+        System.out.println(course);
+    }
 }
