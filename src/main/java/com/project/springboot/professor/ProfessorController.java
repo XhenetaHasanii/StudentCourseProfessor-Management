@@ -1,9 +1,9 @@
 package com.project.springboot.professor;
+import com.project.springboot.student.Student;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path="api/v1/professor")
@@ -17,6 +17,11 @@ public class ProfessorController {
   @PostMapping
   public void createProfessor(@RequestBody Professor professor){
     professorService.addProfessor(professor);
+  }
+  @GetMapping("/getProfessor/{id}")
+  public Optional<Professor> getProfessorById(@PathVariable("id") Long id)
+  {
+    return professorService.getProfessorById(id);
   }
 
 }
