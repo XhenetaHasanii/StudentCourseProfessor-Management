@@ -3,6 +3,8 @@ package com.project.springboot.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class StudentService {
     private StudentRepository studentRepository;
@@ -14,4 +16,11 @@ public class StudentService {
         studentRepository.save(student);
     }
 
-}
+    public Optional<Student> getStudentById(Long id) {
+
+      return studentRepository.findById(id);
+    }
+
+    }
+
+

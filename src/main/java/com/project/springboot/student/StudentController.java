@@ -1,15 +1,12 @@
 package com.project.springboot.student;
 
+import org.hibernate.bytecode.internal.bytebuddy.PassThroughInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
+import java.util.Optional;
 @RestController
 @RequestMapping(path = "api/v1/student")
 public class StudentController {
-
     private StudentService studentService;
     @Autowired
     public StudentController(StudentService studentService)
@@ -21,6 +18,11 @@ public class StudentController {
        studentService.addStudent(student);
        System.out.println(student);
 
+    }
+    @GetMapping("getStudent/{id}")
+    public Optional<Student> getStudentById(@PathVariable("id") Long id )
+    {
+       return studentService.getStudentById(id);
     }
 
 }
