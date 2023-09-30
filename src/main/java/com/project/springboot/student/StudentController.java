@@ -1,14 +1,13 @@
 package com.project.springboot.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/student/v1/")
+@RequestMapping(path = "api/v1/student")
 public class StudentController {
 
     private StudentService studentService;
@@ -19,7 +18,8 @@ public class StudentController {
     }
     @PostMapping()
     public  void createStudent(@RequestBody Student student){
-       studentService.saveStudent(student);
+       studentService.addStudent(student);
+       System.out.println(student);
 
     }
 

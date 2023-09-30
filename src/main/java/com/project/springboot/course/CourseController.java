@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/course/v1/")
+@RequestMapping(path="api/v1/course")
 public class CourseController {
     CourseService courseService;
     @Autowired
-   public CourseController(CourseService courseService){
+    public CourseController(CourseService courseService){
        this.courseService=courseService;
    }
 }

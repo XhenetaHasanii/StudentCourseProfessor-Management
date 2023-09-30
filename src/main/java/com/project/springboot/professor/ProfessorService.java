@@ -10,4 +10,10 @@ public class ProfessorService {
     ProfessorService(ProfessorRepository professorRepository){
       this.professorRepository=professorRepository;
   }
+
+    public void addProfessor(Professor professor) {
+        professorRepository.save(professor);
+        System.out.println(professor);
+    }
+
 }

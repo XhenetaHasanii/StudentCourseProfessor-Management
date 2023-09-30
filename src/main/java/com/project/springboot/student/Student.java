@@ -1,18 +1,17 @@
 package com.project.springboot.student;
-
 import com.project.springboot.course.Course;
-
 import javax.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 @Entity
-@Table(name = "Student")
+@Table(name ="Student")
 
 public class Student {
     @Id
+
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "student_id")
+    @Column(name = "student_example")
     private Long id;
     private String firstName;
     private String lastName;

@@ -1,5 +1,7 @@
 package com.project.springboot.professor;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.project.springboot.course.Course;
 
 import javax.persistence.*;
@@ -18,6 +20,8 @@ public class Professor {
     private String firstName;
     private String lastName;
     private String email;
+    @JsonProperty("collection")
+    @JsonFormat
     @OneToMany(mappedBy = "professor",
     cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Course>courseList=new ArrayList<>();
@@ -92,5 +96,8 @@ public class Professor {
                 ", email='" + email + '\'' +
                 ", courseList=" + courseList +
                 '}';
+    }
+    public void test(){
+        System.out.println(courseList.size());
     }
 }

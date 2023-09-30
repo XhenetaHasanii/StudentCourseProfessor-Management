@@ -10,7 +10,7 @@ public class StudentService {
     StudentService (StudentRepository studentRepository){
         this.studentRepository=studentRepository;
     }
-    public void saveStudent(Student student){
+    public void addStudent(Student student){
         studentRepository.save(student);
     }
 
