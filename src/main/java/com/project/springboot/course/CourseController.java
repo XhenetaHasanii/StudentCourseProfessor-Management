@@ -1,10 +1,9 @@
 package com.project.springboot.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path="api/v1/course")
@@ -17,5 +16,10 @@ public class CourseController {
    @PostMapping()
    public void createNewCourse(@RequestBody  Course course){
         courseService.addNewCourse(course);
+   }
+   @GetMapping("getCourse/{id}")
+   public Optional<Course> getStudentById(@PathVariable("id") Long id)
+   {
+       return courseService.findCourseById(id);
    }
 }
