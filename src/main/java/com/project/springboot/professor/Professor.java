@@ -16,11 +16,11 @@ public class Professor {
     private String firstName;
     private String lastName;
     private String email;
-    @JsonProperty("collection")
+   /* @JsonProperty("collection")
     @JsonFormat
     @OneToMany(mappedBy = "professor",
     cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Course>courseList=new ArrayList<>();
+    private List<Course>courseList=new ArrayList<>();*/
 
     public Professor() {
     }
@@ -62,24 +62,12 @@ public class Professor {
     public void setEmail(String email) {
         this.email = email;
     }
-    public List<Course> getCourseList() {
+/*    public List<Course> getCourseList() {
         return courseList;
     }
     public void setCourseList(List<Course> courseList) {
         this.courseList = courseList;
-    }
-    @Override
-    public String toString() {
-        return "Professor{" +
-                "id=" + id +
-                ", positionTitle='" + positionTitle + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", courseList=" + courseList +
-                '}';
-    }
-    public void test(){
-        System.out.println(courseList.size());
-    }
+    }*/
+
+
 }

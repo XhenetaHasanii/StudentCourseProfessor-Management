@@ -11,7 +11,7 @@ public class SpringbootApplication {
 		SpringApplication.run(SpringbootApplication.class, args);
 		System.out.println("Hello World");
 		Professor professor=new Professor();
-		professor.test();
+
 
 	}
 

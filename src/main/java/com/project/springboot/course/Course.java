@@ -3,7 +3,10 @@ import com.project.springboot.professor.Professor;
 import com.project.springboot.student.Student;
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @Entity()
 @Table(name="course")
 public class Course {
@@ -12,29 +15,15 @@ public class Course {
    @Column(name = "course_id")
    private Long id;
    private String courseTitle;
-   @OneToMany(
-            mappedBy="course",
-            cascade = CascadeType.ALL,
-              orphanRemoval = true)
-    private List<Student> studentList=new ArrayList<>();
-
-   //Reference
-    @ManyToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
-//Reference
-    @ManyToOne
-    @JoinColumn(name = "professor_id")
-    private Professor professor;
-
-
+   @ManyToMany(fetch = FetchType.LAZY,mappedBy = "courses")
+   private Set<Student> studentList=new HashSet<>();
     public Course() {
     }
 
     public Course(Long id, String courseTitle, Professor professor) {
         this.id = id;
         this.courseTitle = courseTitle;
-        this.professor = professor;
+       /* this.professor = professor;*/
     }
 
 
@@ -54,15 +43,15 @@ public class Course {
         this.courseTitle = courseTitle;
     }
 
-    public List<Student> getStudentList() {
+    public Set<Student> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(List<Student> studentList) {
+    public void setStudentList(Set<Student> studentList) {
         this.studentList = studentList;
     }
 
-    public Professor getProfessor() {
+/*    public Professor getProfessor() {
         return professor;
     }
 
@@ -78,5 +67,5 @@ public class Course {
                 ", studentList=" + studentList +
                 ", professor=" + professor +
                 '}';
-    }
+    }*/
 }

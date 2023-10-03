@@ -1,30 +1,26 @@
 package com.project.springboot.student;
 import com.project.springboot.course.Course;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-import java.util.ArrayList;
-import java.util.List;
 @Entity
 @Table(name ="Student")
 
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "student_example")
     private Long id;
     private String firstName;
     private String lastName;
     private String email;
-    @OneToMany(
-            mappedBy="student",
+    @ManyToMany(
             cascade = CascadeType.ALL,
-            orphanRemoval = true)
-
-    private List<Course>courseList=new ArrayList<>();
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
-
+            fetch = FetchType.LAZY)
+   @JoinTable(name = "Student_Course_Table",joinColumns = {
+          @JoinColumn(name = "student_id")}
+           ,inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private Set<Course> courses=new HashSet<>();
     public Student() {
     }
 
@@ -68,22 +64,13 @@ public class Student {
         this.email = email;
     }
 
-    public List<Course> getCourseList() {
-        return courseList;
+    public Set<Course> getCourseList() {
+        return courses;
     }
 
-    public void setCourseList(List<Course> courseList) {
-        this.courseList = courseList;
+    public void setCourseList(Set<Course> courseList) {
+        this.courses = courseList;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", id=" + id +
-                ", email='" + email + '\'' +
-                ", courseList=" + courseList +
-                '}';
-    }
+
 }
