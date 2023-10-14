@@ -1,12 +1,9 @@
 package com.project.springboot.course;
-import com.project.springboot.professor.Professor;
 import com.project.springboot.student.Student;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity()
@@ -23,6 +20,9 @@ public class Course {
    @Column(name = "course_id")
    private Long id;
    private String courseTitle;
+
    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "courses")
    private Set<Student> studentList=new HashSet<>();
 }
+
+

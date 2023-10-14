@@ -9,5 +9,8 @@ import java.util.Optional;
 public interface StudentRepository extends JpaRepository<Student,Long>
 {
 
+    <S extends Student> S saveAndFlush(Student student);
 
+    @Override
+    Optional<Student> findById(Long id);
 }

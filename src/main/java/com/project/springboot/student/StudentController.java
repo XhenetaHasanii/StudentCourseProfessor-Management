@@ -1,16 +1,17 @@
 package com.project.springboot.student;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 @RestController
 @RequestMapping(path = "api/v1/student")
+
 public class StudentController {
     private StudentService studentService;
-    @Autowired
-    public StudentController(StudentService studentService)
-    {
+    public StudentController(StudentService studentService){
         this.studentService=studentService;
     }
+
+
     @PostMapping()
     public  void createStudent(@RequestBody Student student){
        studentService.addStudent(student);
