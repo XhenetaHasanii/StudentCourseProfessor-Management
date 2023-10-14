@@ -13,11 +13,10 @@ void itShouldAddNumbers() {
     int numberTwo = 30;
     //when
     int result = underTest.add(numberOne, numberTwo);
-    int expected=50;
-
     //then
-  assertEquals(result,50);
-  assertThat(result).isEqualTo(expected);
+     int expected=50;
+    assertEquals(result,50);
+    assertThat(result).isEqualTo(expected);
 }
 
 class Calculator
