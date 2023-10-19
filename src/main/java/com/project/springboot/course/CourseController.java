@@ -6,17 +6,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
 @RestController
 @RequestMapping(path="api/v1/course")
 public class CourseController {
-    CourseService courseService;
+   private final CourseService courseService;
     @Autowired
-    public CourseController(CourseService courseService){
+    public CourseController(CourseService courseService)
+    {
        this.courseService=courseService;
    }
    @PostMapping()
-   public void createNewCourse(@RequestBody  Course course){
+   public void createNewCourse(@RequestBody  Course course)
+   {
         courseService.addNewCourse(course);
    }
    @GetMapping("getCourse/{id}")

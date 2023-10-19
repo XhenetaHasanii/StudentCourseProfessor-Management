@@ -8,18 +8,18 @@ import java.util.Optional;
 
 @Service
 public class ProfessorService {
-    private ProfessorRepository professorRepository;
+    private final ProfessorRepository professorRepository;
     @Autowired
     ProfessorService(ProfessorRepository professorRepository){
       this.professorRepository=professorRepository;
   }
-
-    public void addProfessor(Professor professor) {
+    public void addProfessor(Professor professor)
+    {
         professorRepository.save(professor);
         System.out.println(professor);
     }
-
-    public Optional<Professor> getProfessorById(Long id) {
+    public Optional<Professor> getProfessorById(Long id)
+    {
        return professorRepository.findById(id);
     }
 }

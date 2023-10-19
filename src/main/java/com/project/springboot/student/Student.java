@@ -8,6 +8,8 @@ import java.util.Set;
 @Entity
 @Table
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Student
 {
     @Id
@@ -16,14 +18,7 @@ public class Student
     private String firstName;
     private String lastName;
     private String email;
-
-@ManyToMany(targetEntity = Course.class,cascade = CascadeType.ALL)
- private Set<Course> courses=new HashSet<>();
-
-    public Student(String firstName,String lastName,String email){
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.email=email;
-    }
+    @ManyToMany(targetEntity = Course.class,cascade = CascadeType.ALL)
+    private Set<Course> courses=new HashSet<>();
 
 }

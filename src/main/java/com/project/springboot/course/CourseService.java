@@ -5,18 +5,17 @@ import java.util.Optional;
 
 @Service
 public class CourseService {
-    private CourseRepository courseRepository;
+    private final CourseRepository courseRepository;
     @Autowired
     public  CourseService(CourseRepository courseRepository)
     {
         this.courseRepository=courseRepository;
     }
-
-    public void addNewCourse(Course course) {
+    public void addNewCourse(Course course)
+    {
         courseRepository.save(course);
         System.out.println(course);
     }
-
     public Optional<Course> findCourseById(Long id) {
       return courseRepository.findById(id);
 
