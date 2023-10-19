@@ -8,8 +8,8 @@ import java.util.Set;
 
 @Entity()
 @Table(name="course")
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -20,7 +20,6 @@ public class Course {
    @Column(name = "course_id")
    private Long id;
    private String courseTitle;
-
    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "courses")
    private Set<Student> studentList=new HashSet<>();
 }
