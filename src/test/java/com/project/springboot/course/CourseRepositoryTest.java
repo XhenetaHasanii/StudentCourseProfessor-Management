@@ -27,4 +27,15 @@ class CourseRepositoryTest {
         //then
         assertThat(optionalCourse).isPresent();
     }
+    @Test
+    void itShouldCheckIfCourseDoesNotExistsById()
+    {
+        //given
+        Long id=1L;
+        //when
+        Optional<Course> optionalCourse=underTest.findCourseById(id);
+        //then
+        assertThat(optionalCourse).isEmpty();
+
+    }
 }
