@@ -9,7 +9,6 @@ import java.util.Optional;
 import java.util.Set;
 import static  org.assertj.core.api.Assertions.*;
 @SpringBootTest
-@DataJpaTest
 class StudentRepositoryTest
 {
    private final StudentRepository underTest;
