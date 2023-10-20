@@ -3,10 +3,9 @@ package com.project.springboot.professor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.*;
 import java.util.Optional;
-@SpringBootTest
+@DataJpaTest
 class ProfessorRepositoryTest {
  private final ProfessorRepository underTest;
   @Autowired
