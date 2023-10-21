@@ -9,10 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
 class SpringbootApplicationTests {
-    @BeforeClass
+  /*  @BeforeClass
         public static void setUpClass(){
         System.out.println("Set up class ");
-    }
+    }*//*
     @BeforeEach
     public void before()
     {
@@ -33,13 +33,12 @@ class SpringbootApplicationTests {
     {
         System.out.println("After");
     }
-    @AfterClass
+   *//* @AfterClass
     public static void  tearDownClass()
     {
 
         System.out.println("Tear down class");
-    }
-
+    }*/
 
    Calculator underTest=new Calculator();
 @Test
