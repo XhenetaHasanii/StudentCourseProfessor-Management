@@ -1,12 +1,40 @@
 package com.project.springboot;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
+
 class SpringbootApplicationTests {
 
+    @BeforeEach
+    public void before()
+    {
+        System.out.println("Before");
+    }
+
+    @Test
+    public void testCase1()
+    {
+        System.out.println("Testcase 1");
+    }
+    @Test
+    public void testCase2()
+    {
+        System.out.println("TestCase 2");
+
+    }
+    @AfterEach
+    public void after()
+    {
+        System.out.println("After");
+    }
    Calculator underTest=new Calculator();
 @Test
+@Disabled
 void itShouldAddNumbers() {
+
     // given
     int numberOne = 20;
     int numberTwo = 30;
