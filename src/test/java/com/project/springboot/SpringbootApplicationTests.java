@@ -1,4 +1,6 @@
 package com.project.springboot;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -7,13 +9,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
 class SpringbootApplicationTests {
-
+    @BeforeClass
+        public static void setUpClass(){
+        System.out.println("Set up class ");
+    }
     @BeforeEach
     public void before()
     {
         System.out.println("Before");
     }
-
     @Test
     public void testCase1()
     {
@@ -23,13 +27,20 @@ class SpringbootApplicationTests {
     public void testCase2()
     {
         System.out.println("TestCase 2");
-
     }
     @AfterEach
     public void after()
     {
         System.out.println("After");
     }
+    @AfterClass
+    public static void  tearDownClass()
+    {
+
+        System.out.println("Tear down class");
+    }
+
+
    Calculator underTest=new Calculator();
 @Test
 @Disabled
