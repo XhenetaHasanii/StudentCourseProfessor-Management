@@ -7,7 +7,6 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import static org.assertj.core.api.Assertions.*;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,7 +28,7 @@ class CourseServiceTest {
         closeable.close();
     }
     @Test
-    public void getAllStudents()
+     void getAllStudents()
     {
         //when
         underTest.getAllCourses();
@@ -37,7 +36,7 @@ class CourseServiceTest {
         verify(courseRepository).findAll();
     }
     @Test
-    public void addCourse(){
+    void addCourse(){
         //given
         Set<Student> studentSet= new HashSet<>();
         Course course=new Course(1L,"MathCourse",studentSet);
