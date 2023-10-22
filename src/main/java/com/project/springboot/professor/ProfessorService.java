@@ -1,6 +1,8 @@
 package com.project.springboot.professor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 @Service
 public class ProfessorService {
@@ -14,6 +16,10 @@ public class ProfessorService {
     {
         professorRepository.save(professor);
         System.out.println(professor);
+    }
+    public List<Professor> getAllProfessors()
+    {
+        return professorRepository.findAll();
     }
     public Optional<Professor> getProfessorById(Long id)
     {

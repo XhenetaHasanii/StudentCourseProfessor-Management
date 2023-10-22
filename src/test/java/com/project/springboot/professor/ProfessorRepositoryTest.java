@@ -21,7 +21,6 @@ class ProfessorRepositoryTest {
        Optional<Professor> optionalProfessor=underTest.getProfessorById(professor.getId());
        //then
        assertThat(optionalProfessor).isPresent();
-
    }
    @Test
    void checkIfProfessorDoesNotExistsById()
