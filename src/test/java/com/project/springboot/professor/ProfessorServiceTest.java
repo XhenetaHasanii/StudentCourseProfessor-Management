@@ -25,8 +25,8 @@ class ProfessorServiceTest {
     void addProfessor() {
     }
     @Test
-    void getAllProfessors() {
-        underTest.getAllProfessors();
+    void getAllProfessores() {
+        underTest.getAllProfessores();
         verify(professorRepository).findAll();
     }
 

@@ -18,9 +18,9 @@ public class ProfessorController {
     professorService.addProfessor(professor);
   }
   @GetMapping("getAllProfessor/professors")
-  public List<Professor> getAllProfessors()
+  public List<Professor> getAllProfessores()
   {
-   return professorService.getAllProfessors();
+   return professorService.getAllProfessores();
   }
   @GetMapping("/getProfessor/{id}")
   public Optional<Professor> getProfessorById(@PathVariable("id") Long id)

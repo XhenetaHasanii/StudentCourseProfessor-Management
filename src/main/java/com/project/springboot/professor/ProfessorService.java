@@ -17,7 +17,7 @@ public class ProfessorService {
         professorRepository.save(professor);
         System.out.println(professor);
     }
-    public List<Professor> getAllProfessors()
+    public List<Professor> getAllProfessores()
     {
         return professorRepository.findAll();
     }
