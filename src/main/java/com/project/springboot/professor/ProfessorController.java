@@ -1,8 +1,6 @@
 package com.project.springboot.professor;
-import com.project.springboot.student.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
 
 @RestController

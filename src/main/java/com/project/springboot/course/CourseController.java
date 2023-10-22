@@ -1,8 +1,6 @@
 package com.project.springboot.course;
-import com.project.springboot.student.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 @RestController
@@ -23,8 +21,6 @@ public class CourseController {
    public List<Course> courseList()
    {
        return courseService.getAllCourses();
-
-
    }
    @GetMapping("getCourse/{id}")
    public Optional<Course> getCourseById(@PathVariable("id") Long id)
