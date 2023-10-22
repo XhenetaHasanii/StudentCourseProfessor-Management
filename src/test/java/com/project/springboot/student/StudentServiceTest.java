@@ -34,9 +34,7 @@ class StudentServiceTest {
         verify(studentRepository).save(studentArgumentCaptor.capture());
         Student studentCaptorValue=studentArgumentCaptor.getValue();
         assertThat(studentCaptorValue).isEqualTo(student);
-
     }
-
     @Test
     @Disabled
     void canGetAllStudents() {
