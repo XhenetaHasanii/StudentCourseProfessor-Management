@@ -1,5 +1,4 @@
 package com.project.springboot.course;
-
 import com.project.springboot.student.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +18,13 @@ public class CourseController {
    public void createNewCourse(@RequestBody  Course course)
    {
         courseService.addNewCourse(course);
+   }
+   @GetMapping("getAllCourse/courses")
+   public List<Course> courseList()
+   {
+       return courseService.getAllCourses();
+
+
    }
    @GetMapping("getCourse/{id}")
    public Optional<Course> getCourseById(@PathVariable("id") Long id)

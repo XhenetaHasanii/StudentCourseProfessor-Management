@@ -22,8 +22,6 @@ class StudentServiceTest {
 
         underTest=new StudentService(studentRepository);
     }
-
-
     @Test
     @Disabled
     void addStudent() {
@@ -31,7 +29,7 @@ class StudentServiceTest {
 
     @Test
     void canGetAllStudents() {
-//when
+         //when
         underTest.getAllStudents();
         //that
         verify(studentRepository).findAll();
