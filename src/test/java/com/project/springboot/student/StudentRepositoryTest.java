@@ -20,11 +20,11 @@ class StudentRepositoryTest
     {
         Set<Course> courses=new HashSet<>();
         //given
-        Student student=new Student(3L,"Xheneta","Hasani","xheneta.h@gmail.com",
+        Student student=Student.build(1L,"Xheneta","Hasani","xheneta.h@gmail.com",
               courses);
-        underTest.save(student);
+       underTest.save(student);
         //when
-        Optional<Student> optionalStudent =underTest.getStudentById(student.getId());
+        Optional<Student> optionalStudent =underTest.getStudentById(student.getStudentId());
         //then
        assertThat(optionalStudent).isPresent();
     }

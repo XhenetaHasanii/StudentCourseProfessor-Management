@@ -1,28 +1,37 @@
 package com.project.springboot.student;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
+
 @Service
-public class StudentService
-{
+public class StudentService {
     private final StudentRepository studentRepository;
+
     @Autowired
-    StudentService (StudentRepository studentRepository)
-    {
-        this.studentRepository=studentRepository;
+    StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
     }
-    public void addStudent(Student student){
+
+    public void addStudent(StudentDTO studentDTO) {
+
+        Student student = Student.
+                build(0L,
+                        studentDTO.getFirstName(),
+                        studentDTO.getLastName(),
+                        studentDTO.getEmail(),
+                        studentDTO.getCourses());
         studentRepository.save(student);
     }
 
-    public List<Student> getAllStudents()
-    {
+    public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
-    public Optional<Student> getStudentById(Long id)
-    {
-      return studentRepository.findById(id);
+
+    public Optional<Student> getStudentById(Long id) {
+        return studentRepository.findById(id);
     }
 }
 

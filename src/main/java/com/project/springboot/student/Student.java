@@ -1,26 +1,28 @@
 package com.project.springboot.student;
+
 import com.project.springboot.course.Course;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+
 @Entity
-@Table
-@AllArgsConstructor
+@Table(name = "STUDENT_TBL")
+@Data
+@AllArgsConstructor(staticName = "build")
 @NoArgsConstructor
 @Getter
 
-public class Student
-{
+public class Student {
+    @Getter
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue
+    private Long studentId;
     private String firstName;
     private String lastName;
-
     private String email;
-    @ManyToMany(targetEntity = Course.class,cascade = CascadeType.ALL)
-    private Set<Course> courses=new HashSet<>();
+    @ManyToMany(targetEntity = Course.class, cascade = CascadeType.ALL)
+    private Set<Course> courses = new HashSet<>();
 
 }
