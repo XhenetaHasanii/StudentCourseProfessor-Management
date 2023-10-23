@@ -43,8 +43,10 @@ class CourseServiceTest {
         //when
         underTest.addNewCourse(course);
         //then
-        ArgumentCaptor<Course> captorCourse=ArgumentCaptor.forClass(Course.class);
-        verify(courseRepository).save(captorCourse.capture());
+        ArgumentCaptor<Course> captorCourse=
+                ArgumentCaptor.forClass(Course.class);
+        verify(courseRepository).
+                save(captorCourse.capture());
         Course capturedCourse= captorCourse.getValue();
         assertThat(capturedCourse).isEqualTo(course);
 

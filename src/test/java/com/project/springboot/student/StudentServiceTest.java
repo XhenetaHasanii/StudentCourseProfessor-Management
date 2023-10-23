@@ -30,8 +30,10 @@ class StudentServiceTest {
         //when
         underTest.addStudent(student);
         //then
-        ArgumentCaptor<Student> studentArgumentCaptor=ArgumentCaptor.forClass(Student.class);
-        verify(studentRepository).save(studentArgumentCaptor.capture());
+        ArgumentCaptor<Student> studentArgumentCaptor=
+                ArgumentCaptor.forClass(Student.class);
+        verify(studentRepository).
+                save(studentArgumentCaptor.capture());
         Student studentCaptorValue=studentArgumentCaptor.getValue();
         assertThat(studentCaptorValue).isEqualTo(student);
     }

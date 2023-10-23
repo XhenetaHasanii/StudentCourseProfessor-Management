@@ -7,10 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 @Entity
 @Table
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Getter
+
 public class Student
 {
     @Id
@@ -18,6 +18,7 @@ public class Student
     private Long id;
     private String firstName;
     private String lastName;
+
     private String email;
     @ManyToMany(targetEntity = Course.class,cascade = CascadeType.ALL)
     private Set<Course> courses=new HashSet<>();

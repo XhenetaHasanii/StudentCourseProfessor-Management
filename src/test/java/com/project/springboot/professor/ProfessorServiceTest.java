@@ -3,9 +3,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import static org.mockito.Mockito.verify;
+import static org.assertj.core.api.Assertions.*;
 
 class ProfessorServiceTest {
  private ProfessorService underTest;
@@ -21,8 +23,18 @@ class ProfessorServiceTest {
         closeable.close();
     }
     @Test
-    @Disabled
     void addProfessor() {
+        //given
+        Professor professor=new Professor(1L,"Professor","Oliver","","oliver@gmail.com");
+        //when
+        professorRepository.save(professor);
+        //then
+        ArgumentCaptor<Professor> capturedProfessor=ArgumentCaptor
+                .forClass(Professor.class);
+        verify(professorRepository)
+                .save(capturedProfessor.capture());
+        Professor capturedProfessorValue=capturedProfessor.getValue();
+        assertThat(capturedProfessorValue).isEqualTo(professor);
     }
     @Test
     void getAllProfessores() {
