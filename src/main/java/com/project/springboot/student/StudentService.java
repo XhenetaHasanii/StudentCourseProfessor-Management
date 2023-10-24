@@ -21,8 +21,11 @@ public class StudentService {
                 build(0L,
                         studentDTO.getFirstName(),
                         studentDTO.getLastName(),
+                        studentDTO.getAge(),
                         studentDTO.getEmail(),
-                        studentDTO.getCourses());
+                        studentDTO.getMobile(),
+                        studentDTO.getCourses()
+                        );
         return studentRepository.save(student);
 
     }

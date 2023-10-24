@@ -22,7 +22,9 @@ public class Student
     private Long studentId;
     private String firstName;
     private String lastName;
+    private Integer age;
     private String email;
+    private Integer mobile;
     @ManyToMany(targetEntity = Course.class, cascade = CascadeType.ALL)
     private Set<Course> courses = new HashSet<>();
 
