@@ -12,16 +12,17 @@ import java.util.Set;
 @AllArgsConstructor(staticName = "build")
 @NoArgsConstructor
 public class StudentDTO {
-    //Validation input
+    //Validation all the inputs
     @NotNull(message = "firstName shouldn't be null")
     private String firstName;
+    @NotNull(message = "lastName shouldn't be null")
     private String lastName;
     @Min(18)
     @Max(60)
     private Integer age;
     @Email(message = "invalid email entered")
     private String email;
-    @Pattern(regexp = "^\\d{10}",message="invalid number entered")
+    @Pattern(regexp = "^\\d{10}", message = "invalid number entered")
     private Integer mobile;
     @NotBlank
     private Set<Course> courses;
