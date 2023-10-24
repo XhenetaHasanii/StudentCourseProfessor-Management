@@ -15,7 +15,7 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public void addStudent(StudentDTO studentDTO) {
+    public Student saveStudent(StudentDTO studentDTO) {
 
         Student student = Student.
                 build(0L,
@@ -23,7 +23,8 @@ public class StudentService {
                         studentDTO.getLastName(),
                         studentDTO.getEmail(),
                         studentDTO.getCourses());
-        studentRepository.save(student);
+        return studentRepository.save(student);
+
     }
 
     public List<Student> getAllStudents() {
@@ -31,7 +32,7 @@ public class StudentService {
     }
 
     public Optional<Student> getStudentById(Long id) {
-        return studentRepository.findById(id);
+      return studentRepository.findById(id);
     }
 }
 

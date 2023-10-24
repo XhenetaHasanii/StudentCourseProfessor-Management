@@ -14,7 +14,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 
-public class Student {
+public class Student
+{
     @Getter
     @Id
     @GeneratedValue

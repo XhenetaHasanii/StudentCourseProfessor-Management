@@ -31,7 +31,7 @@ class StudentServiceTest {
         Set<Course> courses = new HashSet<>();
         StudentDTO student = StudentDTO.build("Xheneta", "Hasani", "xheneta.h@gmail.com", courses);
         //when
-        underTest.addStudent(student);
+        underTest.saveStudent(student);
         //then
         ArgumentCaptor<Student> studentArgumentCaptor =
                 ArgumentCaptor.forClass(Student.class);
