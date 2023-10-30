@@ -6,14 +6,13 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 @Entity()
-@Table(name="course")
+@Table(name="COURSE_TABLE")
 @Data
-@AllArgsConstructor
+@AllArgsConstructor(staticName = "build")
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
-@EqualsAndHashCode
+
 public class Course {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
